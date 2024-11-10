@@ -1,0 +1,2 @@
+npm run build - сборка проекта
+npm run start:dev - запуск webpack-dev-server
