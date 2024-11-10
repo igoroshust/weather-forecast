@@ -13,7 +13,7 @@ function Current() {
          })
     }
     return (
-        <h1>Hello</h1>
+        <p>Выберите период</p>
 
     );
 };

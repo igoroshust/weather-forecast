@@ -4,7 +4,7 @@ App - это верхний уровень и внутри него подгру
 import * as React from "react";
 import "../styles/App.css";
 // import Main from "./Main";
-import Current from "./Current_weather";
+import CurrentCity from "./CurrentCity";
 import Header from "./Header";
 
 function App () {
@@ -12,7 +12,7 @@ function App () {
         return (
             <>
                 <Header />
-                <Current />
+                <CurrentCity />
             </>
         );
 }
