@@ -23,9 +23,9 @@ function CurrentCity() {
     const onChange = async (e) => {
         setCity(e.target.value);
         const res = await getCoordsByCity(e.target.value);
-//         const longitude = res.data[0].lon;
-//         const latitude = res.data[0].lat;
-//         setCoords({ longitude, latitude });
+        const longitude = res.data[0].lon;
+        const latitude = res.data[0].lat;
+        setCoords({ longitude, latitude });
     }
 
 
