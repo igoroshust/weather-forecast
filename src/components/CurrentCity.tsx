@@ -2,20 +2,32 @@ import * as React from "react";
 import  { useState } from "react";
 import axios from "axios";
 import "../styles/Widget.css";
+import { getCoordsByCity } from "../api/getcoords";
 
 
 function CurrentCity() {
     const [city, setCity] = React.useState();
-    const [longitude, setLongitude] = React.useState();
-    const [latitude, setLatitude] = React.useState();
+//     const [longitude, setLongitude] = React.useState();
+//     const [latitude, setLatitude] = React.useState();
+
+    const [coords, setCoords] = React.useState({
+        longitude: '',
+        latitude: ''
+    });
+
     const cityList = [
         {id: "Moscow", name: "Москва"},
         {id: "Paris", name: "Париж"}
     ]
 
-    const onChange = (e) => {
+    const onChange = async (e) => {
         setCity(e.target.value);
+        const res = await getCoordsByCity(e.target.value);
+//         const longitude = res.data[0].lon;
+//         const latitude = res.data[0].lat;
+//         setCoords({ longitude, latitude });
     }
+
 
     return (
     <>
