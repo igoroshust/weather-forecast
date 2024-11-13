@@ -5,6 +5,7 @@ import * as React from "react";
 import "../styles/App.css";
 // import Main from "./Main";
 import CurrentCity from "./CurrentCity";
+import CurrentPeriod from "./CurrentPeriod";
 import Header from "./Header";
 
 function App () {
@@ -13,6 +14,7 @@ function App () {
             <>
                 <Header />
                 <CurrentCity />
+                <CurrentPeriod />
             </>
         );
 }

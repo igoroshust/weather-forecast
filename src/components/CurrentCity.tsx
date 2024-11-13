@@ -2,18 +2,19 @@ import * as React from "react";
 import  { useState } from "react";
 import axios from "axios";
 import "../styles/Widget.css";
-import { getCoordsByCity } from "../api/getcoords";
+import { getCoordsByCity, getPeriod } from "../api/getcoords";
+
 
 
 function CurrentCity() {
+
     const [city, setCity] = React.useState();
-//     const [longitude, setLongitude] = React.useState();
-//     const [latitude, setLatitude] = React.useState();
 
     const [coords, setCoords] = React.useState({
-        longitude: '',
-        latitude: ''
-    });
+            longitude: '',
+            latitude: ''
+        });
+
 
     const cityList = [
         {id: "Moscow", name: "Москва"},
@@ -28,12 +29,35 @@ function CurrentCity() {
         setCoords({ longitude, latitude });
     }
 
+/* CURRENT PERIOD */
+    const [period, setPeriod ] = React.useState();
+
+    const [chooseList, setChooseList] = React.useState({
+        today: '',
+        fivedays: ''
+    });
+
+    const periodList = [
+        { id: 'today', name: "Сегодня" },
+        { id: 'fivedays', name: "На пять дней"}
+    ]
+
+    const onChange1 = async (e) => {
+        const res = await getPeriod(coords.longitude, coords.latitude);
+    }
 
     return (
     <>
         <h3>Выберите город</h3>
         <select onChange={ onChange } value={ city }>
+        <option selected>------</option>
             { cityList.map((opt) => <option key={opt.id} value={opt.id}>{ opt.name }</option>)}
+        </select>
+
+          <h3>Выберите период</h3>
+        <select onChange={ onChange1 } value={ period }>
+        <option selected>------</option>
+            { periodList.map((opt) => <option key={opt.id} value={opt.id}>{ opt.name }</option>)}
         </select>
     </>
     );
