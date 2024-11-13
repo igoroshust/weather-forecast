@@ -2,7 +2,7 @@ import * as React from "react";
 import  { useState } from "react";
 import axios from "axios";
 import "../styles/Widget.css";
-import { getCoordsByCity, getPeriod } from "../api/getcoords";
+import { getCoordsByCity, getFiveDaysPeriod, getOneDayPeriod } from "../api/getcoords";
 
 
 
@@ -43,7 +43,9 @@ function CurrentCity() {
     ]
 
     const onChange1 = async (e) => {
-        const res = await getPeriod(coords.longitude, coords.latitude);
+        setPeriod(e.target.value) /* Запоминаем период */
+        const resOne = await getOneDayPeriod(coords.longitude, coords.latitude);
+        // const resFive = await getFiveDaysPeriod(coords.longitude, coords.latitude);
     }
 
     return (

@@ -9,8 +9,12 @@ const getCoordsByCity = (cityName) => {
     return $geocoderApi.get(`direct?q=${cityName}&limit=1&appid=${API_KEY}`)
 }
 
-const getPeriod = (lat, lon) => {
+const getOneDayPeriod = (lat, lon) => {
+    return $weatherApi.get(`weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
+}
+
+const getFiveDaysPeriod = (lat, lon) => {
     return $weatherApi.get(`forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
 }
 
-export { getCoordsByCity, getPeriod };
+export { getCoordsByCity, getFiveDaysPeriod, getOneDayPeriod };

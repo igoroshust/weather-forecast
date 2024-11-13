@@ -1,7 +1,7 @@
 import * as React from "react";
 import  { useState } from "react";
 import axios from "axios";
-import { getPeriod } from "../api/getcoords";
+import { getFiveDaysPeriod, getOneDayPeriod } from "../api/getcoords";
 import CurrentCity from "./CurrentCity";
 
 function CurrentPeriod() {
