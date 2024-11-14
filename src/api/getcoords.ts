@@ -10,11 +10,11 @@ const getCoordsByCity = (cityName) => {
 }
 
 const getOneDayPeriod = (lat, lon) => {
-    return $weatherApi.get(`weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
+    return $weatherApi.get(`weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
 }
 
 const getFiveDaysPeriod = (lat, lon) => {
-    return $weatherApi.get(`forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
+    return $weatherApi.get(`forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
 }
 
 export { getCoordsByCity, getFiveDaysPeriod, getOneDayPeriod };
