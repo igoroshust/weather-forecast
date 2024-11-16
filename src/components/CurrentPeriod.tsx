@@ -27,6 +27,7 @@ function CurrentPeriod(props) {
             setWeather(resOne.data);
         } else if (e.target.value === "fivedays") {
             const resFive = await getFiveDaysPeriod(coords.latitude, coords.longitude);
+            setWeather(resFive.data);
         } else {
             alert('Выберите период');
         }

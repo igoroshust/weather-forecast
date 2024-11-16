@@ -8,17 +8,41 @@ import CurrentPeriod from "./CurrentPeriod";
 
 function WeatherCard(props) {
 
+//     const { weatherInfo } = props;
+//     const { weather } = weatherInfo;
+//     const { main } = weather[0];
+//     const { main: mainInfo } = weatherInfo;
+//     const { temp_min, temp_max, humidity, pressure } = mainInfo;
+//     const { wind: windInfo } = weatherInfo;
+//     const { speed } = windInfo;
+//
+//             <div>
+//             <div> { temp_max }°C / { temp_min }°C </div>
+//             <div> { main } </div>
+//             <div> Wind: { speed } km/h </div>
+//             <div> Humidity: { humidity }% </div>
+//             <div> Pressure: { pressure } mm/Hg. </div>
+//             </div>
+
     const { weatherInfo } = props;
-    const { weather } = weatherInfo;
-    const { main } = weather[0];
-    const { main: mainInfo } = weatherInfo;
-    const { temp_min, temp_max } = mainInfo;
+    const { list } = weatherInfo;
+    const { dt } = list[0];
+    const { main: mainInfo } = list[1];
+    const { temp_min, temp_max, humidity } = mainInfo;
+    const { weather: weatherFiveInfo } = list[2];
+    const { main } = weatherFiveInfo[0];
+    const { wind: windInfo } = list[4];
+    const { speed } = windInfo;
+    const { dt_text } = list[9];
+
 
     return (
         <div>
+            <div> ID: { dt } </div>
             <div> { main } </div>
-            <div> { temp_min } </div>
-            <div> { temp_max } </div>
+            <div> { temp_max }°C / { temp_min }°C </div>
+             <div> Wind: { speed } km/h </div>
+            <div> Humidity: { humidity }% </div>
         </div>
     );
 }
