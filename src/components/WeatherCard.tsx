@@ -7,14 +7,14 @@ import CurrentPeriod from "./CurrentPeriod";
 
 
 function WeatherCard(props) {
-
-//     const { weatherInfo } = props;
-//     const { weather } = weatherInfo;
-//     const { main } = weather[0];
-//     const { main: mainInfo } = weatherInfo;
-//     const { temp_min, temp_max, humidity, pressure } = mainInfo;
-//     const { wind: windInfo } = weatherInfo;
-//     const { speed } = windInfo;
+    console.log(props)
+    const { weatherInfo } = props;
+    const { weather } = weatherInfo;
+    const { main } = weather[0];
+    const { main: mainInfo } = weatherInfo;
+    const { temp_min, temp_max, humidity, pressure } = mainInfo;
+    const { wind: windInfo } = weatherInfo;
+    const { speed } = windInfo;
 //
 //             <div>
 //             <div> { temp_max }°C / { temp_min }°C </div>
@@ -34,29 +34,36 @@ function WeatherCard(props) {
 //         </div>
 //     );
 
-    const { weatherInfo } = props;
-    const { list } = weatherInfo;
-    const { dt } = list[0];
-    const { main: mainInfo } = list[1];
-    const { temp_min, temp_max, humidity } = mainInfo;
-    const { weather: weatherFiveInfo } = list[2];
-    const { main } = weatherFiveInfo[0];
-    const { wind: windInfo } = list[4];
-    const { speed } = windInfo;
-    const { dt_text } = list[9];
+//     const { weatherInfo } = props;
+//     const { list } = weatherInfo;
+
+
+//     const { dt } = list[0];
+//     const { main: mainInfo } = list[1];
+//     const { temp_min, temp_max, humidity } = mainInfo;
+//     const { weather: weatherFiveInfo } = list[2];
+//     const { main } = weatherFiveInfo[0];
+//     const { wind: windInfo } = list[4];
+//     const { speed } = windInfo;
+//     const { dt_text } = list[9];
+
+// <h3>{ dt }</h3>
+//      <p>{ temp_max }°C / { temp_min }°C</p>
+//      <p>{ main }</p>
+//      <p>Wind: { speed } km/h</p>
+//      <p>Humidity: { humidity }%</p>
 
 
     return (
     <>
-        <h3 className="result">Result: </h3>
+     <h3 className="result">Result: </h3>
     <div className="forecast">
     <div className="forecast-item">
+    <div> { main } </div>
+    <div> { temp_max }°C / { temp_min }°C </div>
+    <div> Wind: { speed } km/h </div>
+    <div> Humidity: { humidity }% </div>
     <img alt="Weather icon representing sunny weather" height="100" src="https://storage.googleapis.com/a1aa/image/fMu6JSO7MF2qVClmgbJCGqvEJuhWy9XWW5wMB5j9G08mad4JA.jpg" width="100"/>
-     <h3>{ dt }</h3>
-     <p>{ temp_max }°C / { temp_min }°C</p>
-     <p>{ main }</p>
-     <p>Wind: { speed } km/h</p>
-     <p>Humidity: { humidity }%</p>
     </div>
     </div>
     </>

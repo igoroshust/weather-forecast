@@ -6,17 +6,46 @@ import "../styles/App.css";
 import CurrentCity from "./CurrentCity";
 import CurrentPeriod from "./CurrentPeriod";
 import Header from "./Header";
+import WeatherCard from "./WeatherCard";
+import { getFiveDaysPeriod, getOneDayPeriod } from "../api/getcoords";
 
 function App () {
 
     const [city, setCity] = React.useState();
+    const [period, setPeriod] = React.useState();
+    const [weather, setWeather] = React.useState([]);
     const [coords, setCoords] = React.useState({
             longitude: '',
             latitude: ''
         });
 
+    const isOneDay = React.useMemo(() => {
+        return period && period === 'today'
+    }, [period])
+
+    const isFiveDay = React.useMemo(() => {
+        return period && period === 'fivedays'
+    }, [period])
+
+
     const onCoordsChange = (coords) => {
         setCoords(coords);
+    }
+
+    const onPeriodChange = async (value) => {
+        setPeriod(value) /* Запоминаем период */
+        if (!value) { return }
+
+        if (value === "today") {
+            const resOne = await getOneDayPeriod(coords.latitude, coords.longitude);
+            console.log([resOne.data]);
+            setWeather([resOne.data]);
+        } else if (value === "fivedays") {
+            const resFive = await getFiveDaysPeriod(coords.latitude, coords.longitude);
+            setWeather(resFive.data.list);
+        } else {
+            alert('Select period');
+        }
     }
 
         return (
@@ -24,7 +53,9 @@ function App () {
                 <Header />
                 <div className="main">
                 <CurrentCity onCoordsChange={ onCoordsChange } />
-                <CurrentPeriod coords={ coords } />
+                <CurrentPeriod coords={ coords } onPeriodChange={ onPeriodChange }/>
+                { isOneDay && <WeatherCard weatherInfo={ weather[0] } /> }
+                { isFiveDay && weather.map((weatherItem) => <WeatherCard weatherInfo={weatherItem} />)}
                 </div>
             </>
         );
