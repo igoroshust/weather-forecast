@@ -57,6 +57,7 @@ function WeatherCard(props) {
     <>
     <div className="forecast">
     <div className="forecast-item">
+    <div> { date} </div>
     <div> { main } </div>
     <div> { temp_max }°C / { temp_min }°C </div>
     <div> Wind: { speed } km/h </div>

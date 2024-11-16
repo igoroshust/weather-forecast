@@ -9,6 +9,7 @@ import Header from "./Header";
 import WeatherCard from "./WeatherCard";
 import { getFiveDaysPeriod, getOneDayPeriod } from "../api/getcoords";
 
+
 function App () {
 
     const [city, setCity] = React.useState();
@@ -51,6 +52,12 @@ function App () {
         }
     }
 
+    const getDay = (date) => {
+        const d = new Date(date);
+        const days = ["Sunday", "Monday", "Thursday", "Wednesday", "Thirsday", "Friday", "Saturday"];
+        return days[d.getDay()];
+    }
+
         return (
             <>
                 <Header />
@@ -59,8 +66,8 @@ function App () {
                 <CurrentPeriod disabled={ !hasCoords } onPeriodChange={ onPeriodChange }/>
                 { !!weather.length && <h3 className="result">Result: </h3> }
                 <div className="cardContainer">
-                { isOneDay && weather[0] && <WeatherCard weatherInfo={ weather[0] } date='today'/> }
-                { isFiveDay && weather.map((weatherItem) => <WeatherCard weatherInfo={weatherItem} date={ weatherItem.dt_text } />)}
+                { isOneDay && weather[0] && <WeatherCard weatherInfo={ weather[0] } date='Today' /> }
+                { isFiveDay && weather.map((weatherItem) => <WeatherCard weatherInfo={ weatherItem } date={ getDay(weatherItem.dt_txt) } />)}
                 </div>
                 </div>
             </>
