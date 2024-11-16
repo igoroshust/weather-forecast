@@ -17,8 +17,14 @@ function CurrentCity(props) {
 
     const cityList = [
         {id: '', name: ''},
-        {id: "Moscow", name: "Москва"},
-        {id: "Paris", name: "Париж"}
+        {id: "Moscow", name: "Moscow"},
+        {id: "Paris", name: "Paris"},
+        {id: "London", name: "London"},
+        {id: "Berlin", name: "Berlin"},
+        {id: "Bern", name: "Bern"},
+        {id: "Amsterdam", name: "Amsterdam"},
+        {id: "Minsk", name: "Minsk"},
+        {id: "Kyiv", name: "Kyiv"}
     ]
 
     const { onCoordsChange } = props; /* Получение доступа к ПРОПУ onCoordsChange из ПРОПС компонента */
@@ -35,7 +41,7 @@ function CurrentCity(props) {
 
     return (
     <>
-        <h3>Выберите город</h3>
+        <h3>Select city</h3>
         <select onChange={ onChange } value={ city }>
             { cityList.map((opt) => <option key={opt.id} value={opt.id}>{ opt.name }</option>)}
         </select>

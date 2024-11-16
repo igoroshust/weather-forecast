@@ -12,8 +12,8 @@ function CurrentPeriod(props) {
 
     const periodList = [
         { id: '', name: '' },
-        { id: 'today', name: "Сегодня" },
-        { id: 'fivedays', name: "На пять дней"}
+        { id: 'today', name: "Today" },
+        { id: 'fivedays', name: "For 5 days"}
     ]
 
     const { coords } = props; /* Получение доступа к ПРОПУ coords из ПРОПС компонента */
@@ -29,13 +29,13 @@ function CurrentPeriod(props) {
             const resFive = await getFiveDaysPeriod(coords.latitude, coords.longitude);
             setWeather(resFive.data);
         } else {
-            alert('Выберите период');
+            alert('Select period');
         }
     }
 
     return (
     <>
-        <h3>Выберите период</h3>
+        <h3>Select period</h3>
         <select onChange={ onChange } value={ period }>
          { periodList.map((opt) => <option key={opt.id} value={opt.id}>{ opt.name }</option>)}
         </select>
