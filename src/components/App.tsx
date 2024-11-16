@@ -8,6 +8,7 @@ import CurrentPeriod from "./CurrentPeriod";
 import Header from "./Header";
 import WeatherCard from "./WeatherCard";
 import { getFiveDaysPeriod, getOneDayPeriod } from "../api/getcoords";
+import { uniqBy } from 'lodash';
 
 
 function App () {
@@ -46,7 +47,8 @@ function App () {
             setWeather([resOne.data]);
         } else if (value === "fivedays") {
             const resFive = await getFiveDaysPeriod(coords.latitude, coords.longitude);
-            setWeather(resFive.data.list);
+            const uniqueDays = uniqBy(resFive.data.list, (day) => day.dt_txt.slice(0, 10))
+            setWeather(uniqueDays.slice(0, 5));
         } else {
             alert('Select period');
         }
@@ -54,7 +56,7 @@ function App () {
 
     const getDay = (date) => {
         const d = new Date(date);
-        const days = ["Sunday", "Monday", "Thursday", "Wednesday", "Thirsday", "Friday", "Saturday"];
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         return days[d.getDay()];
     }
 

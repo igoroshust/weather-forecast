@@ -14,7 +14,7 @@ const getOneDayPeriod = (lat, lon) => {
 }
 
 const getFiveDaysPeriod = (lat, lon) => {
-    return $weatherApi.get(`forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=${API_KEY}`)
+    return $weatherApi.get(`forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric&cnt=40`)
 }
 
 export { getCoordsByCity, getFiveDaysPeriod, getOneDayPeriod };
