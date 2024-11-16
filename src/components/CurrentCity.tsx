@@ -41,10 +41,12 @@ function CurrentCity(props) {
 
     return (
     <>
-        <h3>Select city</h3>
-        <select onChange={ onChange } value={ city }>
+        <div className="city-selection">
+        <label htmlFor="city"><h3>Select city</h3></label>
+        <select id="city" onChange={ onChange } value={ city }>
             { cityList.map((opt) => <option key={opt.id} value={opt.id}>{ opt.name }</option>)}
         </select>
+        </div>
     </>
     );
 };

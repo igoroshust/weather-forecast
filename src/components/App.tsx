@@ -22,8 +22,10 @@ function App () {
         return (
             <>
                 <Header />
+                <div className="main">
                 <CurrentCity onCoordsChange={ onCoordsChange } />
                 <CurrentPeriod coords={ coords } />
+                </div>
             </>
         );
 }

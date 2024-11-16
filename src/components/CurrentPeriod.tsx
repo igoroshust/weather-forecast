@@ -35,12 +35,14 @@ function CurrentPeriod(props) {
 
     return (
     <>
-        <h3>Select period</h3>
+        <div className="period-selection">
+        <label htmlFor="period"><h3>Select period</h3></label>
         <select onChange={ onChange } value={ period }>
          { periodList.map((opt) => <option key={opt.id} value={opt.id}>{ opt.name }</option>)}
         </select>
 
         { weather && <WeatherCard weatherInfo={ weather } /> }
+        </div>
     </>
     );
 }

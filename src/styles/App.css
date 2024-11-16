@@ -8,3 +8,44 @@ body {
     background-color: #1e1f22;
     color: #3fc313;
 }
+
+.main {
+    padding: 20px 20px;
+}
+
+.forecast {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+.result {
+    padding-top: 20px;
+}
+
+.forecast-item {
+            background-color: #e0e0e0;
+            margin-top: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+.forecast-item img {
+            max-width: 100%;
+            height: auto;
+        }
+.forecast-item h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+.forecast-item p {
+            margin: 5px 0;
+        }
+.city-selection, .period-selection {
+            margin-bottom: 20px;
+        }
+        .city-selection select, .period-selection select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+        }

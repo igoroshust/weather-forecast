@@ -24,6 +24,16 @@ function WeatherCard(props) {
 //             <div> Pressure: { pressure } mm/Hg. </div>
 //             </div>
 
+//     return (
+//         <div>
+//             <div> ID: { dt } </div>
+//             <div> { main } </div>
+//             <div> { temp_max }°C / { temp_min }°C </div>
+//              <div> Wind: { speed } km/h </div>
+//             <div> Humidity: { humidity }% </div>
+//         </div>
+//     );
+
     const { weatherInfo } = props;
     const { list } = weatherInfo;
     const { dt } = list[0];
@@ -37,13 +47,19 @@ function WeatherCard(props) {
 
 
     return (
-        <div>
-            <div> ID: { dt } </div>
-            <div> { main } </div>
-            <div> { temp_max }°C / { temp_min }°C </div>
-             <div> Wind: { speed } km/h </div>
-            <div> Humidity: { humidity }% </div>
-        </div>
+    <>
+        <h3 className="result">Result: </h3>
+    <div className="forecast">
+    <div className="forecast-item">
+    <img alt="Weather icon representing sunny weather" height="100" src="https://storage.googleapis.com/a1aa/image/fMu6JSO7MF2qVClmgbJCGqvEJuhWy9XWW5wMB5j9G08mad4JA.jpg" width="100"/>
+     <h3>{ dt }</h3>
+     <p>{ temp_max }°C / { temp_min }°C</p>
+     <p>{ main }</p>
+     <p>Wind: { speed } km/h</p>
+     <p>Humidity: { humidity }%</p>
+    </div>
+    </div>
+    </>
     );
 }
 
