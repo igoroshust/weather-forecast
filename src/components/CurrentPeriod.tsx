@@ -14,7 +14,7 @@ function CurrentPeriod(props) {
         { id: 'fivedays', name: "For 5 days"}
     ]
 
-    const { onPeriodChange } = props; /* Получение доступа к ПРОПУ из ПРОПС компонента */
+    const { onPeriodChange, disabled } = props; /* Получение доступа к ПРОПУ из ПРОПС компонента */
 
     const onChange = (e) => {
         onPeriodChange(e.target.value);
@@ -25,7 +25,7 @@ function CurrentPeriod(props) {
     <>
         <div className="period-selection">
         <label htmlFor="period"><h3>Select period</h3></label>
-        <select onChange={ onChange } value={ period }>
+        <select onChange={ onChange } value={ period } disabled={ disabled }>
          { periodList.map((opt) => <option key={opt.id} value={opt.id}>{ opt.name }</option>)}
         </select>
         </div>

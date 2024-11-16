@@ -27,6 +27,9 @@ function App () {
         return period && period === 'fivedays'
     }, [period])
 
+    const hasCoords = React.useMemo(() => {
+        return !!coords.longitude && !!coords.latitude;
+    }, [coords])
 
     const onCoordsChange = (coords) => {
         setCoords(coords);
@@ -53,9 +56,12 @@ function App () {
                 <Header />
                 <div className="main">
                 <CurrentCity onCoordsChange={ onCoordsChange } />
-                <CurrentPeriod coords={ coords } onPeriodChange={ onPeriodChange }/>
-                { isOneDay && <WeatherCard weatherInfo={ weather[0] } /> }
-                { isFiveDay && weather.map((weatherItem) => <WeatherCard weatherInfo={weatherItem} />)}
+                <CurrentPeriod disabled={ !hasCoords } onPeriodChange={ onPeriodChange }/>
+                { !!weather.length && <h3 className="result">Result: </h3> }
+                <div className="cardContainer">
+                { isOneDay && weather[0] && <WeatherCard weatherInfo={ weather[0] } date='today'/> }
+                { isFiveDay && weather.map((weatherItem) => <WeatherCard weatherInfo={weatherItem} date={ weatherItem.dt_text } />)}
+                </div>
                 </div>
             </>
         );

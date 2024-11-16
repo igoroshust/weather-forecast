@@ -49,3 +49,8 @@ body {
             padding: 10px;
             font-size: 1em;
         }
+
+.cardContainer {
+    display: flex;
+    justify-content: space-between;
+}

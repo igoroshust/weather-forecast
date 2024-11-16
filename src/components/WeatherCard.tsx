@@ -7,8 +7,7 @@ import CurrentPeriod from "./CurrentPeriod";
 
 
 function WeatherCard(props) {
-    console.log(props)
-    const { weatherInfo } = props;
+    const { weatherInfo, date } = props;
     const { weather } = weatherInfo;
     const { main } = weather[0];
     const { main: mainInfo } = weatherInfo;
@@ -56,7 +55,6 @@ function WeatherCard(props) {
 
     return (
     <>
-     <h3 className="result">Result: </h3>
     <div className="forecast">
     <div className="forecast-item">
     <div> { main } </div>
