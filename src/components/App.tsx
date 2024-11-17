@@ -2,6 +2,7 @@
 App - это верхний уровень и внутри него подгружаются другие компоненты */
 
 import * as React from "react";
+import { useEffect } from "react";
 import "../styles/App.css";
 import CurrentCity from "./CurrentCity";
 import CurrentPeriod from "./CurrentPeriod";
@@ -9,7 +10,6 @@ import Header from "./Header";
 import WeatherCard from "./WeatherCard";
 import { getFiveDaysPeriod, getOneDayPeriod } from "../api/getcoords";
 import { uniqBy } from 'lodash';
-
 
 function App () {
 

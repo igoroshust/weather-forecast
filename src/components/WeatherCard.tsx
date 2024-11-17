@@ -18,6 +18,7 @@ function WeatherCard(props) {
     const mainImg = {
         Clear: 'https://storage.googleapis.com/a1aa/image/fMu6JSO7MF2qVClmgbJCGqvEJuhWy9XWW5wMB5j9G08mad4JA.jpg',
         Clouds: 'https://storage.googleapis.com/a1aa/image/XXoNTxFI6K7iPJhiBewvo1uAQTeRiNpS6NBueRZ8ie9eoWHeE.jpg',
+        Mist: 'https://storage.googleapis.com/a1aa/image/XXoNTxFI6K7iPJhiBewvo1uAQTeRiNpS6NBueRZ8ie9eoWHeE.jpg',
         Thunderstorm: 'https://storage.googleapis.com/a1aa/image/tggkcwFP7bKEP1fXl0rVM096e9kJYbCRk8sUCZI4RmvJ16wTA.jpg.jpg',
         Rain: 'https://storage.googleapis.com/a1aa/image/eYcxFMOmkoXeFEulL6SBBnZCXzCrERSmg5CwRj9eyeOepWHeE.jpg',
         Snow: 'https://storage.googleapis.com/a1aa/image/DKusevpJgE17ECD4FMeEOlXLM5wXlzDN8Vs5JugC7huL16wTA.jpg'
@@ -65,7 +66,7 @@ function WeatherCard(props) {
     return (
     <>
     <div className="forecast-item">
-    <div> { date} </div>
+    <h4> { date} </h4>
     <div> { main } </div>
     <div> { temp_max }°C / { temp_min }°C </div>
     <div> Wind: { speed } km/h </div>
