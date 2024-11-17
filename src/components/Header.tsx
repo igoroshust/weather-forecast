@@ -3,7 +3,7 @@ import "../styles/Header.css";
 
 function Header (props) {
     return (
-        <header>weather-forecast</header>
+        <header>weather-forecast service</header>
     )
 };
 

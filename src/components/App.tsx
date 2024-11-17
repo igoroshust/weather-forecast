@@ -66,7 +66,9 @@ function App () {
                 <div className="main">
                 <CurrentCity onCoordsChange={ onCoordsChange } />
                 <CurrentPeriod disabled={ !hasCoords } onPeriodChange={ onPeriodChange }/>
+
                 { !!weather.length && <h3 className="result">Result: </h3> }
+
                 <div className="cardContainer">
                 { isOneDay && weather[0] && <WeatherCard weatherInfo={ weather[0] } date='Today' /> }
                 { isFiveDay && weather.map((weatherItem) => <WeatherCard weatherInfo={ weatherItem } date={ getDay(weatherItem.dt_txt) } />)}

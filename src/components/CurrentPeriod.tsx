@@ -7,7 +7,6 @@ import CurrentCity from "./CurrentCity";
 function CurrentPeriod(props) {
 
     const [period, setPeriod] = React.useState();
-
     const periodList = [
         { id: '', name: '' },
         { id: 'today', name: "Today" },

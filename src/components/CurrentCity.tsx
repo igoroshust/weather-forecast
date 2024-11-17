@@ -4,8 +4,6 @@ import axios from "axios";
 import "../styles/Widget.css";
 import { getCoordsByCity, getFiveDaysPeriod, getOneDayPeriod } from "../api/getcoords";
 
-
-
 function CurrentCity(props) {
 
     const [city, setCity] = React.useState();
